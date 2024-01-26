@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>Touch slider using Swiper.js</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<style>
+    *,body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .swiper{
+       position: relative;
+       width:92%;
+       padding: 0;
+       margin: 30px auto 60px auto;
+       user-select: none;
+    }
+    .swiper-wrapper .swiper-slide{
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .swiper-wrapper .slider-card{
+        height: 220px;
+        margin-bottom: 60px;
+    }
+    .swiper-wrapper .slider-card img{
+        object-fit: contain;
+    }
+    .swiper-wrapper .sliders{
+        width: 100%;
+        height: 660px;
+    }
+    @media (max-width: 600px){
+     .swiper-wrapper .sliders{
+        width: 100%;
+        height: 180px;
+      }
+      .swiper-wrapper .slider-card{
+        margin-top: 40px;
+        margin-bottom: 55px;
+    }
+    }
+    @media (min-width: 601px) and (max-width: 1200px){
+     .swiper-wrapper .sliders{
+        width: 100%;
+        height: 280px;
+      }
+    }
+
+    .swiper-slide img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-pagination span{
+        width: 24px;
+        height: 5px;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .swiper-button-prev,.swiper-button-next{
+        background-color: rgba(255, 255, 255, 0);
+        width: 60px;
+        height: 60px;
+        margin-top: -30px;
+        padding: 0;
+        transition: 0.2s ease;
+    }
+    .swiper-button-prev:hover,.swiper-button-next:hover{
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    .swiper-button-prev{
+        margin-left: -15px;
+    }
+    .swiper-button-next{
+        margin-right: -15px;
+    }
+</style>
+<body>
+    
+      <!-- Swiper -->
+  <div class="swiper mySwiper1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide sliders"><img src="Images/img1.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img2.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img9.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img4.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img5.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img6.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img7.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img8.jpg"/></div>
+      <div class="swiper-slide sliders"><img src="Images/img3.jpg"/></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+   <!-- Swiper -->
+   <div class="swiper mySwiper2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slider-card"><img src="Images/bag1.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag2.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag3.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag4.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag2.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag3.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag1.jpg"/></div>
+      <div class="swiper-slide slider-card"><img src="Images/bag4.jpg"/></div>
+    </div>
+    <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper1", {
+      spaceBetween: 30,
+      speed: 1200,
+      loop: true,
+      autoplay: {
+        delay: 2000
+      },
+      grabCursor: true,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+
+    var swiper = new Swiper(".mySwiper2", {
+      speed: 700,
+      loop: true,
+      autoplay: {
+        delay: 2000
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        780: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 35,
+        },
+      },
+    });
+
+  </script>
+    
+</body>
+</html>
